@@ -1,0 +1,14 @@
+p {
+    font-family: Lato;
+  }
+  .contiener{
+    width: 450px;
+    align-self: center;
+    align-items: center;
+  }
+
+  .btn-primary {
+    color: #fff;
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+}

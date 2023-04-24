@@ -1,0 +1,31 @@
+<div class="container">
+<mat-toolbar color="primary" id="nav" style="width:100%">
+  <mat-toolbar-row>
+    <span aria-label="title">Place for all</span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="align-center"></span>
+    <span class="example-spacer"></span>
+    <button mat-button routerLink="/register" aria-label="register">Register</button>
+    <button mat-button routerLink="/search" aria-label="search a place">Search a place</button>
+    <button mat-button routerLink="/routes" aria-label=login>Routes</button>
+    <button mat-button routerLink="/login" aria-label=login>Login</button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item name="dialpad">
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled name="Check voicemail">
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voicemail</span>
+      </button>
+      <button mat-menu-item name="Disable alerts">
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+</div>

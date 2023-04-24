@@ -1,0 +1,26 @@
+<div class="container">
+    <form>
+        <mat-form-field class="example-full-width">
+            <mat-label><mat-icon> my_location</mat-icon> starting point...
+            </mat-label>
+            <textarea matInput  ngx-google-places-autocomplete (options)='options'
+             #startingPoint (onAddressChange)="changeOrigin($event)"></textarea>
+          </mat-form-field><br>
+        <mat-form-field class="example-full-width">
+            <mat-label>	<mat-icon> place</mat-icon> my destination...</mat-label>
+            <textarea matInput ngx-google-places-autocomplete (options)='options' 
+                value="{{name}}"  (onAddressChange)="changeDestination($event)"></textarea>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Travel mode</mat-label>
+            <mat-select #select (valueChange)="onSelect(select.value)" >
+              <mat-option *ngFor="let mode of modes" [value]="mode" >
+                {{mode}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+  <button mat-stroked-button color="primary" (click)="openLocationDialog()">Show route</button>
+        
+    </form>
+</div>

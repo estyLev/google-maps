@@ -1,0 +1,47 @@
+
+
+<div class="container">
+  <!-- <app-location [center]="potition"></app-location> -->
+  <mat-form-field class="example-full-width">
+    <mat-label>a place to search...</mat-label>
+    <textarea matInput placeholder="Ex. i what to search..." ngx-google-places-autocomplete (options)='options'
+      #text (keyup.enter)="searchPlaces(text.value)"></textarea>
+  </mat-form-field>
+  <button mat-stroked-button color="primary" (click)="searchPlaces(text.value)">search</button>
+  <div class="table" #table>
+    <table mat-table [dataSource]="places" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Location">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let element"> <button mat-icon-button  (click)="changePotition(element)">
+            <mat-icon>room</mat-icon>
+          </button> </td>
+      </ng-container>
+      <ng-container matColumnDef="photo">
+        <th mat-header-cell *matHeaderCellDef> Photo </th>
+        <td mat-cell *matCellDef="let element"> <button mat-icon-button  (click)="changePhotoRef(element)">
+          <mat-icon>photo</mat-icon>
+          </button> </td>
+      </ng-container>
+      <ng-container matColumnDef="routes">
+        <th mat-header-cell *matHeaderCellDef> Routes </th>
+        <td mat-cell *matCellDef="let element"> <button mat-icon-button  (click)="routes(element)">
+          <mat-icon>directions</mat-icon>
+          </button> </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <app-popular-search [popular]="popularSearch"></app-popular-search>
+   
+  </div>
+ 
+
+</div>
